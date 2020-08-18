@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>989537181727-710bhr06qh4asojre8bkcb6ii46pjhd9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.989537181727-710bhr06qh4asojre8bkcb6ii46pjhd9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAaD_cc6R918f-m7wIOhVsVr4sR26_FjC4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>989537181727</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>hr.vsite.beronic.domagoj.Fast-Order</string>
+	<key>PROJECT_ID</key>
+	<string>fast-order-6c74f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fast-order-6c74f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:989537181727:ios:618a00decbaaf2100ff52a</string>
+	<key>DATABASE_URL</key>
+	<string>https://fast-order-6c74f.firebaseio.com</string>
+</dict>
+</plist>
