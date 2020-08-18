@@ -14,7 +14,9 @@ class MenuViewController: UIViewController {
     var menuView = MenuView()
     let laBodegaServices = LaBodegaService()
     
-    //beveregesMenu is used to store data user wants to buy
+    let confirmOrderViewController = ConfirmOrderViewController()
+    
+    //menu is used to store data user wants to buy
     var menu: [SectionOfMenu] = []
     
     //Number od drinks user wants to buy
@@ -22,11 +24,15 @@ class MenuViewController: UIViewController {
     var orderedBeveragesPriceCounter = 0
     
     override func viewDidLoad() {
-        overrideUserInterfaceStyle = .dark
         menuView.tableView.dataSource = self
         menuView.tableView.delegate = self
+        confirmOrderViewController.updateDataDelagate = self
         menuView.tableView.register(UINib(nibName: "BeverageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         render()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func render(){
@@ -39,20 +45,19 @@ class MenuViewController: UIViewController {
     
     func setUpNavigationBar(){
         self.navigationController?.navigationBar.barTintColor = .black
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.topItem?.title = "La Bodega"
-        self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "AvenirNext-HeavyItalic", size: 28)!
-            
+            NSAttributedString.Key.font: UIFont(name: "Arial-BoldItalicMT", size: 32)!
         ]
     }
     
     //Animates coffeBarNameLabel and coffebarMenu when view appears on the screen
     func activatePresentAnimation(){
         UIView.animate(withDuration: 1.2, animations: {
-                  self.menuView.tableView.transform = CGAffineTransform(translationX: 351, y: 0)
-              })
+            self.menuView.tableView.transform = CGAffineTransform(translationX: 351, y: 0)
+        })
     }
     
     //Initialiazing order with data from beveregesMenu. BeveregesMenu holds ALL drinks in menu: the ones user did and didnt order
@@ -73,8 +78,20 @@ class MenuViewController: UIViewController {
     //Gets user order and navigates to confirmOrderViewController
     @objc func makeOrderButtonPressed(){
         let order = getOrder()
-        let confirmOrderViewController = ConfirmOrderViewController(order: order)
+        confirmOrderViewController.order = order
         self.navigationController?.pushViewController(confirmOrderViewController, animated: true)
+    }
+    
+    func updateMenuBeverages(beverage: Beverage){
+        if menu.count > 0 {
+            for i in 0...menu.count-1{
+                for j in 0...menu[i].beverages.count-1 {
+                    if beverage.name == menu[i].beverages[j].name{
+                        menu[i].beverages[j].beverageCounter = beverage.beverageCounter
+                    }
+                }
+            }
+        }
     }
     
     //When user presses minus icon for specific beverage, this method will do appropriate visual changes on cell
@@ -83,11 +100,13 @@ class MenuViewController: UIViewController {
         if let cell = self.menuView.tableView.cellForRow(at: indexPath) as? BeverageCell {
             DispatchQueue.main.async {
                 cell.orderedBeveragesSumLabel.text = "\(String(self.menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].beverageCounter))x"
+                cell.orderedBeveragesSumLabel.pulsate()
                 if self.menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].beverageCounter == 0 {
                     cell.orderedBeveragesSumLabel.isHidden = true
                     cell.minusImage.isHidden = true
                 }
-                self.menuView.makeOrderButton.setTitle("Narući \(self.orderedBeveragesCounter) pića Za \(self.orderedBeveragesPriceCounter) Kn", for: .normal)
+                self.menuView.makeOrderButton.setTitle("Narući \(self.orderedBeveragesCounter) za \(self.orderedBeveragesPriceCounter) Kn", for: .normal)
+                self.menuView.makeOrderButton.pulsate()
                 
                 if self.orderedBeveragesCounter == 0 {
                     self.menuView.makeOrderButton.isHidden = true
@@ -116,46 +135,48 @@ class MenuViewController: UIViewController {
                 cell.minusImage.isHidden = false
                 cell.orderedBeveragesSumLabel.isHidden = false
                 cell.orderedBeveragesSumLabel.text = "\(String(self.menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].beverageCounter))x"
+                cell.orderedBeveragesSumLabel.pulsate()
                 
                 self.menuView.makeOrderButton.isHidden = false
-                self.menuView.makeOrderButton.setTitle("Narući \(self.orderedBeveragesCounter) pića Za \(self.orderedBeveragesPriceCounter) Kn", for: .normal)
+                self.menuView.makeOrderButton.setTitle("Narući \(self.orderedBeveragesCounter) za \(self.orderedBeveragesPriceCounter) Kn", for: .normal)
+                self.menuView.makeOrderButton.pulsate()
             }
         }
     }
     
     //Changes data of the variables after user clicked plusImage to add beverage
-      @objc func plusImageTapped(plusImageRecognizer: MyTapGesture){
-          self.orderedBeveragesCounter += 1
-          self.orderedBeveragesPriceCounter += self.menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].price
-          self.menu[plusImageRecognizer.section].counterOfOrdersInMenuSection += 1
-          menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].beverageCounter += 1
-          let indexPath = IndexPath(row: plusImageRecognizer.row, section: plusImageRecognizer.section)
-          self.changeCellAppereanceAfterPlusIsTapped(indexPath: indexPath, plusImageRecognizer: plusImageRecognizer)
-      }
+    @objc func plusImageTapped(plusImageRecognizer: MyTapGesture){
+        self.orderedBeveragesCounter += 1
+        self.orderedBeveragesPriceCounter += self.menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].price
+        self.menu[plusImageRecognizer.section].counterOfOrdersInMenuSection += 1
+        menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].beverageCounter += 1
+        let indexPath = IndexPath(row: plusImageRecognizer.row, section: plusImageRecognizer.section)
+        self.changeCellAppereanceAfterPlusIsTapped(indexPath: indexPath, plusImageRecognizer: plusImageRecognizer)
+    }
     
     //Called after user clicked Beverages Section. For example: User clicks on "Alcoholic Drinks" and it
-     //expands or closes "Alcoholic drinks" section depending on the isExpanded boolean of section
-     @objc func handleExpandClose(button: UIButton){
-         DispatchQueue.main.async {
-             var indexPaths = [IndexPath]()
-             let section = button.tag
-             for row in self.menu[section].beverages.indices{
-                 let indexPath = IndexPath(row: row, section: section)
-                 indexPaths.append(indexPath)
-             }
-             let isExpanded = self.menu[section].isExpanded
-             if isExpanded && self.menu[section].counterOfOrdersInMenuSection == 0  {
-                 self.menu[section].isExpanded = !isExpanded
-                 self.menuView.tableView.deleteRows(at: indexPaths, with: .fade)
-             } else if !isExpanded && self.menu[section].counterOfOrdersInMenuSection == 0 {
-                 self.menu[section].isExpanded = !isExpanded
-                 self.menuView.tableView.insertRows(at: indexPaths, with: .fade)
-                 let indexPath2 = IndexPath(row: 0, section: section)
-                 self.menuView.tableView.scrollToRow(at: indexPath2, at: .top, animated: true)
-             }
-             self.menuView.tableView.reloadData()
-         }
-     }
+    //expands or closes "Alcoholic drinks" section depending on the isExpanded boolean of section
+    @objc func handleExpandClose(button: UIButton){
+        DispatchQueue.main.async {
+            var indexPaths = [IndexPath]()
+            let section = button.tag
+            for row in self.menu[section].beverages.indices{
+                let indexPath = IndexPath(row: row, section: section)
+                indexPaths.append(indexPath)
+            }
+            let isExpanded = self.menu[section].isExpanded
+            if isExpanded && self.menu[section].counterOfOrdersInMenuSection == 0  {
+                self.menu[section].isExpanded = !isExpanded
+                self.menuView.tableView.deleteRows(at: indexPaths, with: .fade)
+            } else if !isExpanded && self.menu[section].counterOfOrdersInMenuSection == 0 {
+                self.menu[section].isExpanded = !isExpanded
+                self.menuView.tableView.insertRows(at: indexPaths, with: .fade)
+                let indexPath2 = IndexPath(row: 0, section: section)
+                self.menuView.tableView.scrollToRow(at: indexPath2, at: .top, animated: true)
+            }
+            self.menuView.tableView.reloadData()
+        }
+    }
     
     func setUpButtonsAction(){
         menuView.makeOrderButton.addTarget(self, action: #selector(makeOrderButtonPressed), for: .touchUpInside)
@@ -184,10 +205,6 @@ extension MenuViewController: UITableViewDataSource {
         return menu.count
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.menuView.tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! BeverageCell
         cell.orderedBeveragesSumLabel.isHidden = true
@@ -201,8 +218,8 @@ extension MenuViewController: UITableViewDataSource {
             cell.minusImage.isHidden = true
         }
         cell.beverageNameLabel.text = menu[indexPath.section].beverages[indexPath.row].name
-        cell.plusImage.image = UIImage(named: "plusImage4")
-        cell.minusImage.image = UIImage(named: "minusImage3")
+        cell.plusImage.image = UIImage(named: "grayPlusImage")
+        cell.minusImage.image = UIImage(named: "grayMinusImage")
         cell.beverageImageView.image = UIImage(named: menu[indexPath.section].beverages[indexPath.row].imageString)
         cell.priceLabel.text = "\(String(menu[indexPath.section].beverages[indexPath.row].price)) kn"
         
@@ -223,21 +240,84 @@ extension MenuViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 90
+       }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        view.tintColor = .black
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let image = UIImage(named: "coffeImage") as UIImage?
+//        let button = UIButton(type: .system)
+//        button.setImage(image, for: .normal)
+//        button.setTitleColor(.white, for: .normal)
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
+//        button.setTitle(self.menu[section].title, for: .normal)
+//        button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
+//        button.backgroundColor = .black
+//        button.layer.cornerRadius = 20
+//        button.tag = section
+//        return button
+        let view = UIView()
+        let image = UIImageView()
+        view.frame = CGRect(x: 10, y: 0, width: tableView.frame.width - 20, height: 90)
+        image.frame = CGRect(x: 10 , y: 0, width: view.frame.width, height: view.frame.height)
+        image.image = UIImage.init(named: self.menu[section].imageString)
+        image.contentMode = .scaleAspectFill
+        image.layer.cornerRadius = 10
+        image.layer.masksToBounds = true
+        
         let button = UIButton(type: .system)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
+        button.frame = CGRect(x: 10, y: 0, width: view.frame.width, height: view.frame.height)
         button.setTitle(self.menu[section].title, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.shadowOpacity = 0.9
         button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 20
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
         button.tag = section
-        return button
+        
+        
+        view.layer.cornerRadius = 20
+        view.addSubview(image)
+        view.addSubview(button)
+        return view
     }
 }
 
 extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
     }
+}
+
+//Updates data in tableView with beverages added or subtracted in ConfirmOrderViewController
+extension MenuViewController: UpdateDataFromConfirmOrderVC {
+    func updateDataInTableView(order: Order) {
+        if order.beverages.count == 0 {
+            resetTableViewData()
+        } else {
+        for beverage in order.beverages {
+            self.updateMenuBeverages(beverage: beverage)
+        }
+        menuView.tableView.reloadData()
+        self.orderedBeveragesCounter = order.beveragesCounter
+        self.orderedBeveragesPriceCounter = order.beveragesPriceSum
+        self.menuView.makeOrderButton.setTitle("Narući \(order.beveragesCounter) za \(order.beveragesPriceSum) Kn", for: .normal)
+        }
+    }
+    
+    func resetTableViewData(){
+           self.orderedBeveragesCounter = 0
+           self.orderedBeveragesPriceCounter = 0
+           self.menu = []
+           self.menu = self.laBodegaServices.fillBeveragesMenu()
+           self.menuView.makeOrderButton.isHidden = true
+           self.menuView.tableView.reloadData()
+       }
 }
 

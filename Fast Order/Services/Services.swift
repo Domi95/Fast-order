@@ -22,6 +22,7 @@ import FirebaseFirestore
 
 class Services {
     private let database = Database.database().reference()
+    private let databaseFirestore = Firestore.firestore()
     var orders: [Order] = []
     var orderedBeverages: [Beverage] = []
     
@@ -113,6 +114,14 @@ class Services {
     
     func removeOrderFromFirebase(orderId: String){
         Database.database().reference().child("Orders").child(orderId).removeValue()
+    }
+    
+    func sendWaiterRequestToFirestore(tableNumber: String){
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm:ss"
+        let dateString = df.string(from: date)
+        databaseFirestore.collection("LaBodega").document("WaiterRequests").setData(["tableNumber":tableNumber, "timeStamp":dateString])
     }
 }
 
