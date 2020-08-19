@@ -13,11 +13,4 @@ struct Beverage {
     let imageString: String
     let price: Int
     var beverageCounter: Int
-    
-    init(name: String, imageString: String, price: Int, orderedBeverageCounter: Int) {
-        self.name = name
-        self.imageString = imageString
-        self.price = price
-        self.beverageCounter = orderedBeverageCounter
-    }
 }

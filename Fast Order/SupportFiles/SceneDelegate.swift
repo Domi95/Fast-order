@@ -23,7 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
       func setUpTabBarController(){
            let customTabBarController = CustomTabBarController(win: window!)
-           //let qrViewController = QRcodeViewController(win: window!)
            window?.rootViewController = customTabBarController
       }
 

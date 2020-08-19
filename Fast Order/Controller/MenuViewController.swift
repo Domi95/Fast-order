@@ -17,7 +17,7 @@ class MenuViewController: UIViewController {
     let confirmOrderViewController = ConfirmOrderViewController()
     
     //menu is used to store data user wants to buy
-    var menu: [SectionOfMenu] = []
+    var menu: [MenuSection] = []
     
     //Number od drinks user wants to buy
     var orderedBeveragesCounter = 0
@@ -71,7 +71,7 @@ class MenuViewController: UIViewController {
                 }
             }
         }
-        let order = Order(id: "999", tableNumber: 404, orderedBeveragesSum: orderedBeveragesCounter, orderedBeveragesPriceSum: orderedBeveragesPriceCounter, beverages: orderedBeverages)
+        let order = Order(id: "999", tableNumber: 404, beveragesCounter: orderedBeveragesCounter, beveragesPriceSum: orderedBeveragesPriceCounter, beverages: orderedBeverages)
         return order
     }
     
@@ -253,17 +253,6 @@ extension MenuViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let image = UIImage(named: "coffeImage") as UIImage?
-//        let button = UIButton(type: .system)
-//        button.setImage(image, for: .normal)
-//        button.setTitleColor(.white, for: .normal)
-//        button.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
-//        button.setTitle(self.menu[section].title, for: .normal)
-//        button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
-//        button.backgroundColor = .black
-//        button.layer.cornerRadius = 20
-//        button.tag = section
-//        return button
         let view = UIView()
         let image = UIImageView()
         view.frame = CGRect(x: 10, y: 0, width: tableView.frame.width - 20, height: 90)

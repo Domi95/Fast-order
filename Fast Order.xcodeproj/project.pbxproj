@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8A5B1DC65995D5B28186D784 /* Pods_Fast_Order.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CC3B99B853B1C355C4425B /* Pods_Fast_Order.framework */; };
-		C551368824E2C6B30014FC19 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551368724E2C6B30014FC19 /* Extensions.swift */; };
 		C551368F24E2C7A80014FC19 /* BeverageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C551368D24E2C7A80014FC19 /* BeverageCell.xib */; };
 		C551369024E2C7A80014FC19 /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551368E24E2C7A80014FC19 /* BeverageCell.swift */; };
 		C551369224E2D4800014FC19 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551369124E2D4800014FC19 /* Services.swift */; };
@@ -17,13 +16,19 @@
 		C551369824E2D52F0014FC19 /* CallWaiterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551369724E2D52F0014FC19 /* CallWaiterView.swift */; };
 		C551369A24E3138D0014FC19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C551369924E3138D0014FC19 /* GoogleService-Info.plist */; };
 		C551369C24E3FDBE0014FC19 /* SuccessfulOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */; };
+		C5A0780B24EDC31C0006B53C /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0780A24EDC31C0006B53C /* UILabel + Extensions.swift */; };
+		C5A0780D24EDC34F0006B53C /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0780C24EDC34F0006B53C /* UIButton + Extensions.swift */; };
+		C5A0780F24EDC3A80006B53C /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0780E24EDC3A80006B53C /* MyButton.swift */; };
+		C5A0781124EDC3CF0006B53C /* MyTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0781024EDC3CF0006B53C /* MyTapGesture.swift */; };
+		C5A0781324EDC3F50006B53C /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0781224EDC3F50006B53C /* UIImageView + Extensions.swift */; };
+		C5A0781A24EDCA560006B53C /* UITableView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0781924EDCA560006B53C /* UITableView + Extensions.swift */; };
 		C5CA38EC24E6825D00C00C65 /* SuccessfulOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CA38EB24E6825D00C00C65 /* SuccessfulOrderViewController.swift */; };
 		C5FA41F224E2B79800F6357E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA41F124E2B79800F6357E /* AppDelegate.swift */; };
 		C5FA41F424E2B79800F6357E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA41F324E2B79800F6357E /* SceneDelegate.swift */; };
 		C5FA41FB24E2B7A000F6357E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5FA41FA24E2B7A000F6357E /* Assets.xcassets */; };
 		C5FA420724E2BB5900F6357E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA420624E2BB5900F6357E /* MenuViewController.swift */; };
 		C5FA420924E2BB9E00F6357E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA420824E2BB9E00F6357E /* MenuView.swift */; };
-		C5FA420C24E2BC1F00F6357E /* SectionOfMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA420B24E2BC1F00F6357E /* SectionOfMenu.swift */; };
+		C5FA420C24E2BC1F00F6357E /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA420B24E2BC1F00F6357E /* MenuSection.swift */; };
 		C5FA420F24E2BC9C00F6357E /* LaBodegaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA420E24E2BC9C00F6357E /* LaBodegaService.swift */; };
 		C5FA421124E2BCD500F6357E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA421024E2BCD500F6357E /* Order.swift */; };
 		C5FA421324E2BCF500F6357E /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA421224E2BCF500F6357E /* Beverage.swift */; };
@@ -33,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		69B15CD9E3A03852341A495F /* Pods-Fast Order.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast Order.release.xcconfig"; path = "Target Support Files/Pods-Fast Order/Pods-Fast Order.release.xcconfig"; sourceTree = "<group>"; };
-		C551368724E2C6B30014FC19 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C551368D24E2C7A80014FC19 /* BeverageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeverageCell.xib; sourceTree = "<group>"; };
 		C551368E24E2C7A80014FC19 /* BeverageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageCell.swift; sourceTree = "<group>"; };
 		C551369124E2D4800014FC19 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -42,6 +46,12 @@
 		C551369724E2D52F0014FC19 /* CallWaiterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallWaiterView.swift; sourceTree = "<group>"; };
 		C551369924E3138D0014FC19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulOrderView.swift; sourceTree = "<group>"; };
+		C5A0780A24EDC31C0006B53C /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
+		C5A0780C24EDC34F0006B53C /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		C5A0780E24EDC3A80006B53C /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		C5A0781024EDC3CF0006B53C /* MyTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTapGesture.swift; sourceTree = "<group>"; };
+		C5A0781224EDC3F50006B53C /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
+		C5A0781924EDCA560006B53C /* UITableView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extensions.swift"; sourceTree = "<group>"; };
 		C5CA38EB24E6825D00C00C65 /* SuccessfulOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulOrderViewController.swift; sourceTree = "<group>"; };
 		C5FA41EE24E2B79800F6357E /* Fast Order.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fast Order.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FA41F124E2B79800F6357E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +60,7 @@
 		C5FA41FF24E2B7A000F6357E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5FA420624E2BB5900F6357E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C5FA420824E2BB9E00F6357E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		C5FA420B24E2BC1F00F6357E /* SectionOfMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOfMenu.swift; sourceTree = "<group>"; };
+		C5FA420B24E2BC1F00F6357E /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		C5FA420E24E2BC9C00F6357E /* LaBodegaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaBodegaService.swift; sourceTree = "<group>"; };
 		C5FA421024E2BCD500F6357E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C5FA421224E2BCF500F6357E /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
@@ -81,6 +91,61 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C5A0780924EDC2F70006B53C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5A0780A24EDC31C0006B53C /* UILabel + Extensions.swift */,
+				C5A0780C24EDC34F0006B53C /* UIButton + Extensions.swift */,
+				C5A0781224EDC3F50006B53C /* UIImageView + Extensions.swift */,
+				C5A0781924EDCA560006B53C /* UITableView + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C5A0781424EDC4490006B53C /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C5FA41F124E2B79800F6357E /* AppDelegate.swift */,
+				C5FA41F324E2B79800F6357E /* SceneDelegate.swift */,
+				C5FA41FA24E2B7A000F6357E /* Assets.xcassets */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		C5A0781524EDC4BC0006B53C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C551368E24E2C7A80014FC19 /* BeverageCell.swift */,
+				C551368D24E2C7A80014FC19 /* BeverageCell.xib */,
+				C5FA420824E2BB9E00F6357E /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		C5A0781624EDC4E80006B53C /* ConfirmOrder */ = {
+			isa = PBXGroup;
+			children = (
+				C5FA421624E2BD8500F6357E /* ConfirmOrderView.swift */,
+			);
+			path = ConfirmOrder;
+			sourceTree = "<group>";
+		};
+		C5A0781724EDC4F70006B53C /* CallWaiter */ = {
+			isa = PBXGroup;
+			children = (
+				C551369724E2D52F0014FC19 /* CallWaiterView.swift */,
+			);
+			path = CallWaiter;
+			sourceTree = "<group>";
+		};
+		C5A0781824EDC5030006B53C /* SuccessfulOrder */ = {
+			isa = PBXGroup;
+			children = (
+				C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */,
+			);
+			path = SuccessfulOrder;
+			sourceTree = "<group>";
+		};
 		C5FA41E524E2B79800F6357E = {
 			isa = PBXGroup;
 			children = (
@@ -106,11 +171,10 @@
 				C5FA420A24E2BBA500F6357E /* View */,
 				C5FA420524E2BB3700F6357E /* Controller */,
 				C5FA421824E2C0C700F6357E /* Services */,
-				C5FA41FA24E2B7A000F6357E /* Assets.xcassets */,
+				C5A0780924EDC2F70006B53C /* Extensions */,
+				C5A0781424EDC4490006B53C /* SupportFiles */,
 				C5FA41FF24E2B7A000F6357E /* Info.plist */,
-				C5FA41F324E2B79800F6357E /* SceneDelegate.swift */,
 				C551369924E3138D0014FC19 /* GoogleService-Info.plist */,
-				C5FA41F124E2B79800F6357E /* AppDelegate.swift */,
 			);
 			path = "Fast Order";
 			sourceTree = "<group>";
@@ -130,12 +194,10 @@
 		C5FA420A24E2BBA500F6357E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C551368E24E2C7A80014FC19 /* BeverageCell.swift */,
-				C551368D24E2C7A80014FC19 /* BeverageCell.xib */,
-				C5FA420824E2BB9E00F6357E /* MenuView.swift */,
-				C5FA421624E2BD8500F6357E /* ConfirmOrderView.swift */,
-				C551369724E2D52F0014FC19 /* CallWaiterView.swift */,
-				C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */,
+				C5A0781524EDC4BC0006B53C /* Menu */,
+				C5A0781624EDC4E80006B53C /* ConfirmOrder */,
+				C5A0781724EDC4F70006B53C /* CallWaiter */,
+				C5A0781824EDC5030006B53C /* SuccessfulOrder */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,10 +205,11 @@
 		C5FA420D24E2BC2500F6357E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C5FA420B24E2BC1F00F6357E /* SectionOfMenu.swift */,
+				C5FA420B24E2BC1F00F6357E /* MenuSection.swift */,
 				C5FA421024E2BCD500F6357E /* Order.swift */,
 				C5FA421224E2BCF500F6357E /* Beverage.swift */,
-				C551368724E2C6B30014FC19 /* Extensions.swift */,
+				C5A0780E24EDC3A80006B53C /* MyButton.swift */,
+				C5A0781024EDC3CF0006B53C /* MyTapGesture.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,21 +349,26 @@
 				C5FA421724E2BD8500F6357E /* ConfirmOrderView.swift in Sources */,
 				C551369224E2D4800014FC19 /* Services.swift in Sources */,
 				C551369824E2D52F0014FC19 /* CallWaiterView.swift in Sources */,
-				C5FA420C24E2BC1F00F6357E /* SectionOfMenu.swift in Sources */,
+				C5FA420C24E2BC1F00F6357E /* MenuSection.swift in Sources */,
 				C551369C24E3FDBE0014FC19 /* SuccessfulOrderView.swift in Sources */,
+				C5A0781124EDC3CF0006B53C /* MyTapGesture.swift in Sources */,
 				C5FA41F224E2B79800F6357E /* AppDelegate.swift in Sources */,
 				C5FA421324E2BCF500F6357E /* Beverage.swift in Sources */,
 				C5CA38EC24E6825D00C00C65 /* SuccessfulOrderViewController.swift in Sources */,
+				C5A0780F24EDC3A80006B53C /* MyButton.swift in Sources */,
 				C551369624E2D5150014FC19 /* CallWaiterViewController.swift in Sources */,
 				C5FA420F24E2BC9C00F6357E /* LaBodegaService.swift in Sources */,
 				C5FA420924E2BB9E00F6357E /* MenuView.swift in Sources */,
 				C551369024E2C7A80014FC19 /* BeverageCell.swift in Sources */,
 				C551369424E2D4F00014FC19 /* CustomTabBarController.swift in Sources */,
 				C5FA420724E2BB5900F6357E /* MenuViewController.swift in Sources */,
+				C5A0780B24EDC31C0006B53C /* UILabel + Extensions.swift in Sources */,
 				C5FA41F424E2B79800F6357E /* SceneDelegate.swift in Sources */,
+				C5A0781324EDC3F50006B53C /* UIImageView + Extensions.swift in Sources */,
 				C5FA421124E2BCD500F6357E /* Order.swift in Sources */,
-				C551368824E2C6B30014FC19 /* Extensions.swift in Sources */,
+				C5A0781A24EDCA560006B53C /* UITableView + Extensions.swift in Sources */,
 				C5FA421524E2BD2C00F6357E /* ConfirmOrderViewController.swift in Sources */,
+				C5A0780D24EDC34F0006B53C /* UIButton + Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

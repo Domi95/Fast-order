@@ -93,7 +93,7 @@ class Services {
                 guard let orderedBeverageCounter = orderedBeverageDetailsDictionary["orderedBeverageCounter"] else {
                     return
                 }
-                let beverage = Beverage(name: name as! String, imageString: imageString as! String, price: price as! Int, orderedBeverageCounter: orderedBeverageCounter as! Int)
+                let beverage = Beverage(name: name as! String, imageString: imageString as! String, price: price as! Int, beverageCounter: orderedBeverageCounter as! Int)
                 self.orderedBeverages.append(beverage)
             }
         }
@@ -107,7 +107,7 @@ class Services {
         let orderedBeveragesPriceSumCasted = Int(orderedBeveragesPriceSum as String)
         let tableNumberCasted = Int(tableNumber as String)
         
-        let orderFromFirebase = Order(id: orderId as String, tableNumber: tableNumberCasted!, orderedBeveragesSum: orderedBeveragesSumCasted!, orderedBeveragesPriceSum: orderedBeveragesPriceSumCasted!, beverages: self.orderedBeverages)
+        let orderFromFirebase = Order(id: orderId as String, tableNumber: tableNumberCasted!, beveragesCounter: orderedBeveragesSumCasted!, beveragesPriceSum: orderedBeveragesPriceSumCasted!, beverages: self.orderedBeverages)
         self.orders.append(orderFromFirebase)
         self.orderedBeverages = []
     }

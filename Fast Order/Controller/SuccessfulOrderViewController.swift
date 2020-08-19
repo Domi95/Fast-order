@@ -18,7 +18,6 @@ class SuccessfulOrderViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.navigationController?.navigationBar.isHidden = true
         render()
     }
     
@@ -31,6 +30,7 @@ class SuccessfulOrderViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
         successfulOrderView.successfulOrderImageview.pulsate()
     }
     
