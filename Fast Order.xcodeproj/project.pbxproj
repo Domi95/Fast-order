@@ -16,6 +16,9 @@
 		C551369824E2D52F0014FC19 /* CallWaiterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551369724E2D52F0014FC19 /* CallWaiterView.swift */; };
 		C551369A24E3138D0014FC19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C551369924E3138D0014FC19 /* GoogleService-Info.plist */; };
 		C551369C24E3FDBE0014FC19 /* SuccessfulOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */; };
+		C5706F9224EFF43A00E6B146 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5706F9124EFF43A00E6B146 /* Constants.swift */; };
+		C590E7B824F10FD700FE2CA8 /* ConfirmOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C590E7B624F10FD700FE2CA8 /* ConfirmOrderCell.swift */; };
+		C590E7B924F10FD700FE2CA8 /* ConfirmOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C590E7B724F10FD700FE2CA8 /* ConfirmOrderCell.xib */; };
 		C5A0780B24EDC31C0006B53C /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0780A24EDC31C0006B53C /* UILabel + Extensions.swift */; };
 		C5A0780D24EDC34F0006B53C /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0780C24EDC34F0006B53C /* UIButton + Extensions.swift */; };
 		C5A0780F24EDC3A80006B53C /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0780E24EDC3A80006B53C /* MyButton.swift */; };
@@ -46,6 +49,9 @@
 		C551369724E2D52F0014FC19 /* CallWaiterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallWaiterView.swift; sourceTree = "<group>"; };
 		C551369924E3138D0014FC19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulOrderView.swift; sourceTree = "<group>"; };
+		C5706F9124EFF43A00E6B146 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C590E7B624F10FD700FE2CA8 /* ConfirmOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderCell.swift; sourceTree = "<group>"; };
+		C590E7B724F10FD700FE2CA8 /* ConfirmOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmOrderCell.xib; sourceTree = "<group>"; };
 		C5A0780A24EDC31C0006B53C /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
 		C5A0780C24EDC34F0006B53C /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		C5A0780E24EDC3A80006B53C /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
@@ -91,6 +97,38 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C5706F9024EFF41E00E6B146 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				C5706F9124EFF43A00E6B146 /* Constants.swift */,
+			);
+			path = Globals;
+			sourceTree = "<group>";
+		};
+		C5706F9324F036AD00E6B146 /* Confirm Order */ = {
+			isa = PBXGroup;
+			children = (
+				C5FA421424E2BD2C00F6357E /* ConfirmOrderViewController.swift */,
+			);
+			path = "Confirm Order";
+			sourceTree = "<group>";
+		};
+		C5706F9424F041C100E6B146 /* CallWaiter */ = {
+			isa = PBXGroup;
+			children = (
+				C551369524E2D5150014FC19 /* CallWaiterViewController.swift */,
+			);
+			path = CallWaiter;
+			sourceTree = "<group>";
+		};
+		C5706F9524F0425600E6B146 /* SuccessfulOrder */ = {
+			isa = PBXGroup;
+			children = (
+				C5CA38EB24E6825D00C00C65 /* SuccessfulOrderViewController.swift */,
+			);
+			path = SuccessfulOrder;
+			sourceTree = "<group>";
+		};
 		C5A0780924EDC2F70006B53C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				C5FA421624E2BD8500F6357E /* ConfirmOrderView.swift */,
+				C590E7B624F10FD700FE2CA8 /* ConfirmOrderCell.swift */,
+				C590E7B724F10FD700FE2CA8 /* ConfirmOrderCell.xib */,
 			);
 			path = ConfirmOrder;
 			sourceTree = "<group>";
@@ -144,6 +184,22 @@
 				C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */,
 			);
 			path = SuccessfulOrder;
+			sourceTree = "<group>";
+		};
+		C5EE172624EF1B6F003D71A3 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C551369324E2D4F00014FC19 /* CustomTabBarController.swift */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		C5EE172724EF1B85003D71A3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C5FA420624E2BB5900F6357E /* MenuViewController.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		C5FA41E524E2B79800F6357E = {
@@ -172,6 +228,7 @@
 				C5FA420524E2BB3700F6357E /* Controller */,
 				C5FA421824E2C0C700F6357E /* Services */,
 				C5A0780924EDC2F70006B53C /* Extensions */,
+				C5706F9024EFF41E00E6B146 /* Globals */,
 				C5A0781424EDC4490006B53C /* SupportFiles */,
 				C5FA41FF24E2B7A000F6357E /* Info.plist */,
 				C551369924E3138D0014FC19 /* GoogleService-Info.plist */,
@@ -182,11 +239,11 @@
 		C5FA420524E2BB3700F6357E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C551369324E2D4F00014FC19 /* CustomTabBarController.swift */,
-				C5FA420624E2BB5900F6357E /* MenuViewController.swift */,
-				C5FA421424E2BD2C00F6357E /* ConfirmOrderViewController.swift */,
-				C551369524E2D5150014FC19 /* CallWaiterViewController.swift */,
-				C5CA38EB24E6825D00C00C65 /* SuccessfulOrderViewController.swift */,
+				C5EE172624EF1B6F003D71A3 /* CustomTabBar */,
+				C5EE172724EF1B85003D71A3 /* Menu */,
+				C5706F9324F036AD00E6B146 /* Confirm Order */,
+				C5706F9424F041C100E6B146 /* CallWaiter */,
+				C5706F9524F0425600E6B146 /* SuccessfulOrder */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,6 +351,7 @@
 				C551368F24E2C7A80014FC19 /* BeverageCell.xib in Resources */,
 				C551369A24E3138D0014FC19 /* GoogleService-Info.plist in Resources */,
 				C5FA41FB24E2B7A000F6357E /* Assets.xcassets in Resources */,
+				C590E7B924F10FD700FE2CA8 /* ConfirmOrderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +418,7 @@
 				C5FA420F24E2BC9C00F6357E /* LaBodegaService.swift in Sources */,
 				C5FA420924E2BB9E00F6357E /* MenuView.swift in Sources */,
 				C551369024E2C7A80014FC19 /* BeverageCell.swift in Sources */,
+				C590E7B824F10FD700FE2CA8 /* ConfirmOrderCell.swift in Sources */,
 				C551369424E2D4F00014FC19 /* CustomTabBarController.swift in Sources */,
 				C5FA420724E2BB5900F6357E /* MenuViewController.swift in Sources */,
 				C5A0780B24EDC31C0006B53C /* UILabel + Extensions.swift in Sources */,
@@ -369,6 +428,7 @@
 				C5A0781A24EDCA560006B53C /* UITableView + Extensions.swift in Sources */,
 				C5FA421524E2BD2C00F6357E /* ConfirmOrderViewController.swift in Sources */,
 				C5A0780D24EDC34F0006B53C /* UIButton + Extensions.swift in Sources */,
+				C5706F9224EFF43A00E6B146 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

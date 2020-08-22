@@ -25,10 +25,7 @@ class BeverageCell: UITableViewCell {
         
         beverageNameLabel.style(size: 16, text: "")
         
-        orderedBeveragesSumLabel.style(size: 18, text: "")
-        orderedBeveragesSumLabel.isHidden = true
-        
-        priceLabel.text = ""
+        orderedBeveragesSumLabel.style(isHidden: true, size: 18, text: "")
         
         cellView.backgroundColor = .black
         cellView.layer.cornerRadius = 10
@@ -41,6 +38,46 @@ class BeverageCell: UITableViewCell {
         priceLabel.style(size: 18, text: "")
         
         minusImage.isHidden = true
+    }
+    
+    func setUpCell(menu: [MenuSection], indexPath: IndexPath) {
+        orderedBeveragesSumLabel.isHidden = true
+        //If and else clause will fix problem connected to Reusable cell appearance
+        if menu[indexPath.section].beverages[indexPath.row].beverageCounter > 0 {
+            minusImage.isHidden = false
+            orderedBeveragesSumLabel.isHidden = false
+            orderedBeveragesSumLabel.text = "\(menu[indexPath.section].beverages[indexPath.row].beverageCounter)x"
+        } else {
+            minusImage.isHidden = true
+        }
+        beverageNameLabel.text = menu[indexPath.section].beverages[indexPath.row].name
+        plusImage.image = UIImage(named: "grayPlusImage")
+        minusImage.image = UIImage(named: "grayMinusImage")
+        beverageImageView.image = UIImage(named: menu[indexPath.section].beverages[indexPath.row].imageString)
+        priceLabel.text = "\(String(menu[indexPath.section].beverages[indexPath.row].price)) kn"
+        selectionStyle = .none
+    }
+    
+    func minusImageTapped(menu: [MenuSection], tapGesture: MyTapGesture) {
+        DispatchQueue.main.async {
+            self.orderedBeveragesSumLabel.text = "\(menu[tapGesture.section].beverages[tapGesture.row].beverageCounter)x"
+            self.orderedBeveragesSumLabel.pulsate()
+            
+            if menu[tapGesture.section].beverages[tapGesture.row].beverageCounter == 0 {
+                self.orderedBeveragesSumLabel.isHidden = true
+                self.minusImage.isHidden = true
+            }
+        }
+    }
+    
+    func plusImageTapped(menu: [MenuSection], tapGesture: MyTapGesture) {
+        DispatchQueue.main.async {
+            self.minusImage.isHidden = false
+            self.orderedBeveragesSumLabel.isHidden = false
+            self.orderedBeveragesSumLabel.text = "\(menu[tapGesture.section].beverages[tapGesture.row].beverageCounter)x"
+            self.orderedBeveragesSumLabel.pulsate()
+        }
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

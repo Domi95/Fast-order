@@ -10,9 +10,9 @@ import UIKit
 
 extension UIButton {
     
-    func style(isHidden: Bool = false, cornerRadius: CGFloat = 25, size: CGFloat, bgColor: UIColor, text: String = "", titleColor: UIColor = .white) {
+    func style(isHidden: Bool = false, cornerRadius: CGFloat = 25, size: CGFloat, bgColor: UIColor, title: String = "", titleColor: UIColor = .white) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.setTitle(text, for: .normal)
+        self.setTitle(title, for: .normal)
         self.isHidden = isHidden
         self.setTitleColor(.white, for: .normal)
         self.layer.cornerRadius = cornerRadius

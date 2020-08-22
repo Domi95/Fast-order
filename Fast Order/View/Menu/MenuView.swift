@@ -23,6 +23,25 @@ class MenuView: UIView {
         super.init(coder: coder)
     }
     
+    func minusTapped(beveragesCounter: Int, beveragesPriceCounter: Int) {
+        DispatchQueue.main.async {
+            self.makeOrderButton.setTitle("Narući \(beveragesCounter) za \(beveragesPriceCounter) Kn", for: .normal)
+            self.makeOrderButton.pulsate()
+            
+            if beveragesCounter == 0 {
+               self.makeOrderButton.isHidden = true
+            }
+        }
+    }
+    
+    func plusTapped(beveragesCounter: Int, beveragesPriceCounter: Int) {
+        DispatchQueue.main.async {
+            self.makeOrderButton.isHidden = false
+            self.makeOrderButton.setTitle("Narući \(beveragesCounter) za \(beveragesPriceCounter) Kn", for: .normal)
+            self.makeOrderButton.pulsate()
+        }
+    }
+    
     private func setUpElements(){
         self.addSubview(makeOrderButton)
         makeOrderButton.style(isHidden: true, size: 19, bgColor: .systemGray)

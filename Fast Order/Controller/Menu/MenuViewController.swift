@@ -6,7 +6,6 @@
 //  Copyright © 2020 Domagoj Beronic. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class MenuViewController: UIViewController {
@@ -17,25 +16,14 @@ class MenuViewController: UIViewController {
     let confirmOrderViewController = ConfirmOrderViewController()
     
     //menu is used to store data user wants to buy
-    var menu: [MenuSection] = []
+    var menu = [MenuSection]()
     
     //Number od drinks user wants to buy
     var orderedBeveragesCounter = 0
     var orderedBeveragesPriceCounter = 0
     
     override func viewDidLoad() {
-        menuView.tableView.dataSource = self
-        menuView.tableView.delegate = self
-        confirmOrderViewController.updateDataDelagate = self
-        menuView.tableView.register(UINib(nibName: "BeverageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-        render()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
-    func render(){
+        self.setUpTableView()
         self.menu = laBodegaServices.fillBeveragesMenu()
         setUpNavigationBar()
         setUpMenuView()
@@ -43,18 +31,12 @@ class MenuViewController: UIViewController {
         activatePresentAnimation()
     }
     
-    func setUpNavigationBar(){
-        self.navigationController?.navigationBar.barTintColor = .black
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.topItem?.title = "La Bodega"
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "Arial-BoldItalicMT", size: 32)!
-        ]
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     //Animates coffeBarNameLabel and coffebarMenu when view appears on the screen
-    func activatePresentAnimation(){
+    private func activatePresentAnimation(){
         UIView.animate(withDuration: 1.2, animations: {
             self.menuView.tableView.transform = CGAffineTransform(translationX: 351, y: 0)
         })
@@ -62,7 +44,7 @@ class MenuViewController: UIViewController {
     
     //Initialiazing order with data from beveregesMenu. BeveregesMenu holds ALL drinks in menu: the ones user did and didnt order
     //Order holds only drinks which user ordered
-    func getOrder() -> Order {
+    private func getOrder() -> Order {
         var orderedBeverages: [Beverage] = []
         for menu in menu {
             for beverage in menu.beverages {
@@ -82,7 +64,7 @@ class MenuViewController: UIViewController {
         self.navigationController?.pushViewController(confirmOrderViewController, animated: true)
     }
     
-    func updateMenuBeverages(beverage: Beverage){
+    private func updateMenuBeverages(beverage: Beverage){
         if menu.count > 0 {
             for i in 0...menu.count-1{
                 for j in 0...menu[i].beverages.count-1 {
@@ -96,62 +78,42 @@ class MenuViewController: UIViewController {
     
     //When user presses minus icon for specific beverage, this method will do appropriate visual changes on cell
     //Called by "minusImageTapped"
-    func changeCellAppereanceAfterMinusIsTapped(indexPath: IndexPath, minusImageRecognizer: MyTapGesture){
-        if let cell = self.menuView.tableView.cellForRow(at: indexPath) as? BeverageCell {
-            DispatchQueue.main.async {
-                cell.orderedBeveragesSumLabel.text = "\(String(self.menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].beverageCounter))x"
-                cell.orderedBeveragesSumLabel.pulsate()
-                if self.menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].beverageCounter == 0 {
-                    cell.orderedBeveragesSumLabel.isHidden = true
-                    cell.minusImage.isHidden = true
-                }
-                self.menuView.makeOrderButton.setTitle("Narući \(self.orderedBeveragesCounter) za \(self.orderedBeveragesPriceCounter) Kn", for: .normal)
-                self.menuView.makeOrderButton.pulsate()
-                
-                if self.orderedBeveragesCounter == 0 {
-                    self.menuView.makeOrderButton.isHidden = true
-                }
-            }
+    private func changeCellAppereanceAfterMinusIsTapped(indexPath: IndexPath, minusImageRecognizer: MyTapGesture){
+        if let cell = menuView.tableView.cellForRow(at: indexPath) as? BeverageCell {
+            cell.minusImageTapped(menu: menu, tapGesture: minusImageRecognizer)
+            menuView.minusTapped(beveragesCounter: orderedBeveragesCounter, beveragesPriceCounter: orderedBeveragesPriceCounter)
         }
     }
     
     //Changes data of the variables after user clicked minusImage to subtract beverage
     @objc func minusImageTapped(minusImageRecognizer: MyTapGesture){
-        self.orderedBeveragesCounter -= 1
-        self.orderedBeveragesPriceCounter -= self.menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].price
+        orderedBeveragesCounter -= 1
+        orderedBeveragesPriceCounter -= menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].price
         let indexPath = IndexPath(row: minusImageRecognizer.row, section: minusImageRecognizer.section)
         if menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].beverageCounter > 0 {
-            self.menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].beverageCounter -= 1
-            self.menu[minusImageRecognizer.section].counterOfOrdersInMenuSection -= 1
-            self.changeCellAppereanceAfterMinusIsTapped(indexPath: indexPath, minusImageRecognizer: minusImageRecognizer)
+            menu[minusImageRecognizer.section].beverages[minusImageRecognizer.row].beverageCounter -= 1
+            menu[minusImageRecognizer.section].counterOfOrdersInMenuSection -= 1
+            changeCellAppereanceAfterMinusIsTapped(indexPath: indexPath, minusImageRecognizer: minusImageRecognizer)
         }
     }
     
     //When user presses plus icon for specific beverage, this method will do appropriate visual changes on cell
     //Is called by "plusImageTapped"
-    func changeCellAppereanceAfterPlusIsTapped(indexPath: IndexPath, plusImageRecognizer: MyTapGesture){
+    private func changeCellAppereanceAfterPlusIsTapped(indexPath: IndexPath, plusImageRecognizer: MyTapGesture){
         if let cell = self.menuView.tableView.cellForRow(at: indexPath) as? BeverageCell {
-            DispatchQueue.main.async {
-                cell.minusImage.isHidden = false
-                cell.orderedBeveragesSumLabel.isHidden = false
-                cell.orderedBeveragesSumLabel.text = "\(String(self.menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].beverageCounter))x"
-                cell.orderedBeveragesSumLabel.pulsate()
-                
-                self.menuView.makeOrderButton.isHidden = false
-                self.menuView.makeOrderButton.setTitle("Narući \(self.orderedBeveragesCounter) za \(self.orderedBeveragesPriceCounter) Kn", for: .normal)
-                self.menuView.makeOrderButton.pulsate()
-            }
+            cell.plusImageTapped(menu: menu, tapGesture: plusImageRecognizer)
+            menuView.plusTapped(beveragesCounter: orderedBeveragesCounter, beveragesPriceCounter: orderedBeveragesPriceCounter)
         }
     }
     
     //Changes data of the variables after user clicked plusImage to add beverage
     @objc func plusImageTapped(plusImageRecognizer: MyTapGesture){
-        self.orderedBeveragesCounter += 1
-        self.orderedBeveragesPriceCounter += self.menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].price
-        self.menu[plusImageRecognizer.section].counterOfOrdersInMenuSection += 1
+        orderedBeveragesCounter += 1
+        orderedBeveragesPriceCounter += self.menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].price
+        menu[plusImageRecognizer.section].counterOfOrdersInMenuSection += 1
         menu[plusImageRecognizer.section].beverages[plusImageRecognizer.row].beverageCounter += 1
         let indexPath = IndexPath(row: plusImageRecognizer.row, section: plusImageRecognizer.section)
-        self.changeCellAppereanceAfterPlusIsTapped(indexPath: indexPath, plusImageRecognizer: plusImageRecognizer)
+        changeCellAppereanceAfterPlusIsTapped(indexPath: indexPath, plusImageRecognizer: plusImageRecognizer)
     }
     
     //Called after user clicked Beverages Section. For example: User clicks on "Alcoholic Drinks" and it
@@ -178,11 +140,28 @@ class MenuViewController: UIViewController {
         }
     }
     
-    func setUpButtonsAction(){
+    private func setUpNavigationBar(){
+        self.navigationController?.navigationBar.barTintColor = .black
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.topItem?.title = Constants.caffeBarName
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "Arial-BoldItalicMT", size: 28)!
+        ]
+    }
+    
+    private func setUpButtonsAction(){
         menuView.makeOrderButton.addTarget(self, action: #selector(makeOrderButtonPressed), for: .touchUpInside)
     }
     
-    func setUpMenuView(){
+    private func setUpTableView() {
+        menuView.tableView.dataSource = self
+        menuView.tableView.delegate = self
+        confirmOrderViewController.updateDataDelagate = self
+        menuView.tableView.register(UINib(nibName: Constants.beverageCell, bundle: nil), forCellReuseIdentifier: Constants.beverageCell)
+    }
+    
+    private func setUpMenuView(){
         view.addSubview(menuView)
         menuView.translatesAutoresizingMaskIntoConstraints = false
         menuView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
@@ -193,7 +172,6 @@ class MenuViewController: UIViewController {
 }
 
 extension MenuViewController: UITableViewDataSource {
-    //Will not show rows of section which has value of variable "isExpanded" false
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !menu[section].isExpanded {
             return 0
@@ -206,22 +184,8 @@ extension MenuViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.menuView.tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! BeverageCell
-        cell.orderedBeveragesSumLabel.isHidden = true
-        
-        //If and else clause will fix problem connected to Reusable cell appearance
-        if menu[indexPath.section].beverages[indexPath.row].beverageCounter > 0 {
-            cell.minusImage.isHidden = false
-            cell.orderedBeveragesSumLabel.isHidden = false
-            cell.orderedBeveragesSumLabel.text = "\(String(menu[indexPath.section].beverages[indexPath.row].beverageCounter))x"
-        } else {
-            cell.minusImage.isHidden = true
-        }
-        cell.beverageNameLabel.text = menu[indexPath.section].beverages[indexPath.row].name
-        cell.plusImage.image = UIImage(named: "grayPlusImage")
-        cell.minusImage.image = UIImage(named: "grayMinusImage")
-        cell.beverageImageView.image = UIImage(named: menu[indexPath.section].beverages[indexPath.row].imageString)
-        cell.priceLabel.text = "\(String(menu[indexPath.section].beverages[indexPath.row].price)) kn"
+        let cell = self.menuView.tableView.dequeueReusableCell(withIdentifier: Constants.beverageCell, for: indexPath) as! BeverageCell
+        cell.setUpCell(menu: menu, indexPath: indexPath)
         
         let plusImageRecognizer = MyTapGesture(target: self, action: #selector(plusImageTapped(plusImageRecognizer:)))
         plusImageRecognizer.row = indexPath.row
@@ -235,8 +199,6 @@ extension MenuViewController: UITableViewDataSource {
         cell.plusImage.addGestureRecognizer(plusImageRecognizer)
         cell.minusImage.isUserInteractionEnabled = true
         cell.minusImage.addGestureRecognizer(minusImageRecognizer)
-        
-        cell.selectionStyle = .none
         return cell
     }
     
@@ -246,7 +208,7 @@ extension MenuViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 90
-       }
+    }
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         view.tintColor = .black
@@ -271,7 +233,6 @@ extension MenuViewController: UITableViewDataSource {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
         button.tag = section
         
-        
         view.layer.cornerRadius = 20
         view.addSubview(image)
         view.addSubview(button)
@@ -287,26 +248,27 @@ extension MenuViewController: UITableViewDelegate {
 //Updates data in tableView with beverages added or subtracted in ConfirmOrderViewController
 extension MenuViewController: UpdateDataFromConfirmOrderVC {
     func updateDataInTableView(order: Order) {
-        if order.beverages.count == 0 {
+        if order.beveragesCounter == 0 {
+            self.menuView.makeOrderButton.isHidden = true
             resetTableViewData()
         } else {
-        for beverage in order.beverages {
-            self.updateMenuBeverages(beverage: beverage)
-        }
-        menuView.tableView.reloadData()
-        self.orderedBeveragesCounter = order.beveragesCounter
-        self.orderedBeveragesPriceCounter = order.beveragesPriceSum
-        self.menuView.makeOrderButton.setTitle("Narući \(order.beveragesCounter) za \(order.beveragesPriceSum) Kn", for: .normal)
+            for beverage in order.beverages {
+                self.updateMenuBeverages(beverage: beverage)
+            }
+            menuView.tableView.reloadData()
+            self.orderedBeveragesCounter = order.beveragesCounter
+            self.orderedBeveragesPriceCounter = order.beveragesPriceSum
+            self.menuView.makeOrderButton.setTitle("Narući \(order.beveragesCounter) za \(order.beveragesPriceSum) Kn", for: .normal)
         }
     }
     
     func resetTableViewData(){
-           self.orderedBeveragesCounter = 0
-           self.orderedBeveragesPriceCounter = 0
-           self.menu = []
-           self.menu = self.laBodegaServices.fillBeveragesMenu()
-           self.menuView.makeOrderButton.isHidden = true
-           self.menuView.tableView.reloadData()
-       }
+        self.orderedBeveragesCounter = 0
+        self.orderedBeveragesPriceCounter = 0
+        self.menu = []
+        self.menu = self.laBodegaServices.fillBeveragesMenu()
+        self.menuView.makeOrderButton.isHidden = true
+        self.menuView.tableView.reloadData()
+    }
 }
 

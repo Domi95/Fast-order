@@ -23,6 +23,25 @@ class ConfirmOrderView: UIView {
         super.init(coder: coder)
     }
     
+    func minusTapped(beveragesCounter: Int, beveragesPriceCounter: Int) {
+        DispatchQueue.main.async {
+            self.confirmOrderButton.setTitle("Narući \(beveragesCounter) za \(beveragesPriceCounter) Kn", for: .normal)
+            self.confirmOrderButton.pulsate()
+            
+            if beveragesCounter == 0 {
+               self.confirmOrderButton.isHidden = true
+            }
+        }
+    }
+    
+    func plusTapped(beveragesCounter: Int, beveragesPriceCounter: Int) {
+        DispatchQueue.main.async {
+            self.confirmOrderButton.isHidden = false
+            self.confirmOrderButton.setTitle("Narući \(beveragesCounter) za \(beveragesPriceCounter) Kn", for: .normal)
+            self.confirmOrderButton.pulsate()
+        }
+    }
+    
     private func setUpElements(){
         addSubview(tableView)
         tableView.style()

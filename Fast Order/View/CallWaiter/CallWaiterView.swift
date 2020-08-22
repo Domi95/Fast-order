@@ -26,9 +26,23 @@ class CallWaiterView: UIView {
            super.init(coder: coder)
        }
     
+    func showElementsWhenWaiterCalled() {
+        callWaiterButton.pulsate()
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm:ss"
+        let dateString = df.string(from: date)
+        emojiLabel.isHidden = false
+        emojiLabel.pulsateLongerVersion()
+        informationAboutSuccessOfWaiterCallLabel.isHidden = false
+        timeStampLabel.isHidden = false
+        informationAboutSuccessOfWaiterCallLabel.text = "Osoblje stiže"
+        timeStampLabel.text = "Vrijeme poziva \n\(dateString)"
+    }
+    
     private func setUpElements(){
         addSubview(callWaiterButton)
-        callWaiterButton.style(cornerRadius: 20, size: 16, bgColor: .white, text: "Pozovi konobara", titleColor: .red)
+        callWaiterButton.style(cornerRadius: 20, size: 16, bgColor: .white, title: "Pozovi konobara", titleColor: .red)
         
         addSubview(emojiLabel)
         emojiLabel.style(isHidden: true, size: 170, text: "🏃‍♂️")

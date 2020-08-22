@@ -13,7 +13,6 @@
 //  Copyright © 2020 Domagoj Beronic. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import FirebaseDatabase
 import FirebaseCore

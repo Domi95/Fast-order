@@ -34,7 +34,7 @@ class SuccessfulOrderView: UIView {
         informationAboutSuccessOfOrderLabel.style(size: 24, text: "Narudžba dolazi!🥳")
     
         addSubview(backToMenuButton)
-        backToMenuButton.style(cornerRadius: 20, size: 16, bgColor: .white, text: "Nazad na menu", titleColor: .red)
+        backToMenuButton.style(cornerRadius: 20, size: 16, bgColor: .white, title: "Nazad na menu", titleColor: .red)
     }
     
     private func setUpConstraints(){

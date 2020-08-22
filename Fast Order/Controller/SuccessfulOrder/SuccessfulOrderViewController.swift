@@ -6,7 +6,6 @@
 //  Copyright © 2020 Domagoj Beronic. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class SuccessfulOrderViewController: UIViewController {
@@ -17,16 +16,13 @@ class SuccessfulOrderViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    override func viewDidLoad() {
-        render()
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if self.isMovingFromParent {
-            //self.navigationController?.popToRootViewController(animated: true)
-        }
+    override func viewDidLoad() {
+        setUpSuccessfulOrderView()
+        setUpButtonsActions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,12 +30,7 @@ class SuccessfulOrderViewController: UIViewController {
         successfulOrderView.successfulOrderImageview.pulsate()
     }
     
-    func render(){
-        setUpSuccessfulOrderView()
-        setUpButtonsActions()
-    }
-    
-    func setUpButtonsActions(){
+    private func setUpButtonsActions(){
         successfulOrderView.backToMenuButton.addTarget(self, action: #selector(backToMenuButtonPressed), for: .touchUpInside)
     }
     
@@ -47,17 +38,13 @@ class SuccessfulOrderViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func setUpSuccessfulOrderView(){
+    private func setUpSuccessfulOrderView(){
         view.addSubview(successfulOrderView)
         successfulOrderView.translatesAutoresizingMaskIntoConstraints = false
         successfulOrderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         successfulOrderView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         successfulOrderView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         successfulOrderView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
