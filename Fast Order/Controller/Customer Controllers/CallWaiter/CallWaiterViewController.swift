@@ -24,14 +24,10 @@ class CallWaiterViewController: UIViewController {
     private func setUpButtonsAction(){
         callWaiterView.callWaiterButton.addTarget(self, action: #selector(callWaiterButtonPressed), for: .touchUpInside)
     }
-    
-    private func callWaiter(){
-    services.sendWaiterRequestToFirestore(tableNumber: "404")
-    }
-    
+ 
     @objc func callWaiterButtonPressed(){
         callWaiterView.showElementsWhenWaiterCalled()
-        services.sendWaiterRequestToFirestore(tableNumber: "404")
+        services.sendWaiterRequestToFirestore(tableNumber: "12")
     }
     
     private func setUpNavigationBar(){

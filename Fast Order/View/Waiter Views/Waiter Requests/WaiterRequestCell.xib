@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WaiterRequestCell" rowHeight="40" id="KGk-i7-Jjw" customClass="WaiterRequestCell" customModule="Fast_Order" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsf-o9-PhZ" userLabel="cellView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTa-AU-n6R" userLabel="tableNumber">
+                                <rect key="frame" x="8" y="10" width="119" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="eiV-0p-rtD"/>
+                                    <constraint firstAttribute="width" constant="119" id="qTQ-Se-pzz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N62-65-7Bs" userLabel="timeStamp">
+                                <rect key="frame" x="183" y="10" width="119" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="2VQ-XQ-g4G"/>
+                                    <constraint firstAttribute="width" constant="119" id="hSq-NX-ZWV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="N62-65-7Bs" firstAttribute="top" secondItem="Nsf-o9-PhZ" secondAttribute="top" constant="10" id="1sX-It-FOa"/>
+                            <constraint firstItem="DTa-AU-n6R" firstAttribute="leading" secondItem="Nsf-o9-PhZ" secondAttribute="leading" constant="8" id="clU-qu-RDK"/>
+                            <constraint firstAttribute="trailing" secondItem="N62-65-7Bs" secondAttribute="trailing" constant="18" id="oL6-gv-2IX"/>
+                            <constraint firstItem="DTa-AU-n6R" firstAttribute="top" secondItem="Nsf-o9-PhZ" secondAttribute="top" constant="10" id="zge-hM-Btn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Nsf-o9-PhZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="J9P-VI-41X"/>
+                    <constraint firstAttribute="trailing" secondItem="Nsf-o9-PhZ" secondAttribute="trailing" id="bAg-BX-esq"/>
+                    <constraint firstItem="Nsf-o9-PhZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="r0a-68-A8I"/>
+                    <constraint firstAttribute="bottom" secondItem="Nsf-o9-PhZ" secondAttribute="bottom" id="vK2-CJ-zbx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellView" destination="Nsf-o9-PhZ" id="RUN-q6-KXD"/>
+                <outlet property="tableNumber" destination="DTa-AU-n6R" id="jPF-Zv-D3S"/>
+                <outlet property="timeStamp" destination="N62-65-7Bs" id="E1n-l1-EWe"/>
+            </connections>
+            <point key="canvasLocation" x="-4.3478260869565224" y="49.553571428571423"/>
+        </tableViewCell>
+    </objects>
+</document>

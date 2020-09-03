@@ -15,4 +15,12 @@ class Constants {
     static let caffeBarName = "La Bodega"
     
     static let confirmOrderCell = "ConfirmOrderCell"
+    
+    static let orderListCell = "OrderListCell"
+       
+    static let orderDetailsCell = "OrderDetailsCell"
+    
+    static let waiterRequestCell = "WaiterRequestCell"
+    
+    static let coffeBarName = "LaBodega"
 }

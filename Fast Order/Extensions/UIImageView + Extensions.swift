@@ -17,7 +17,14 @@ extension UIImageView {
         pulse.repeatCount = 10
         pulse.initialVelocity = 0.5
         pulse.damping = 3
-        
         layer.add(pulse, forKey: nil)
     }
+    
+    func styleView(cornerRadius: CGFloat = 35) {
+        self.contentMode = .scaleAspectFill
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = true
+    }
+    
 }

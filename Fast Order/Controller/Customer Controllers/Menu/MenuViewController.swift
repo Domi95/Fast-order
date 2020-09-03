@@ -53,7 +53,7 @@ class MenuViewController: UIViewController {
                 }
             }
         }
-        let order = Order(id: "999", tableNumber: 404, beveragesCounter: orderedBeveragesCounter, beveragesPriceSum: orderedBeveragesPriceCounter, beverages: orderedBeverages)
+        let order = Order(id: "999", tableNumber: 404, orderedBeveragesSum: orderedBeveragesCounter, orderedBeveragesPriceSum: orderedBeveragesPriceCounter, beverages: orderedBeverages)
         return order
     }
     

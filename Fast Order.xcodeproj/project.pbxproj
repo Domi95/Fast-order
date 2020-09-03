@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8A5B1DC65995D5B28186D784 /* Pods_Fast_Order.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CC3B99B853B1C355C4425B /* Pods_Fast_Order.framework */; };
+		C54F786A24F8044F00BB238A /* WaiterRequestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F786924F8044F00BB238A /* WaiterRequestsVC.swift */; };
+		C54F787024F804FB00BB238A /* WaiterTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F786F24F804FB00BB238A /* WaiterTabBar.swift */; };
+		C54F787324F8054F00BB238A /* OrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F787224F8054F00BB238A /* OrderListVC.swift */; };
+		C54F787624F8059000BB238A /* OrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F787524F8059000BB238A /* OrderDetailsVC.swift */; };
+		C54F787924F8060400BB238A /* OrderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F787824F8060400BB238A /* OrderDetailsView.swift */; };
+		C54F787C24F8064B00BB238A /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F787B24F8064B00BB238A /* OrderListView.swift */; };
+		C54F787F24F8067E00BB238A /* WaiterRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F787E24F8067E00BB238A /* WaiterRequestsView.swift */; };
+		C54F788324F806DB00BB238A /* WaiterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F788224F806DB00BB238A /* WaiterService.swift */; };
+		C54F788924F807DA00BB238A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F788824F807DA00BB238A /* Order.swift */; };
+		C54F788B24F8080E00BB238A /* WaiterRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F788A24F8080E00BB238A /* WaiterRequests.swift */; };
 		C551368F24E2C7A80014FC19 /* BeverageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C551368D24E2C7A80014FC19 /* BeverageCell.xib */; };
 		C551369024E2C7A80014FC19 /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551368E24E2C7A80014FC19 /* BeverageCell.swift */; };
 		C551369224E2D4800014FC19 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551369124E2D4800014FC19 /* Services.swift */; };
@@ -16,6 +26,16 @@
 		C551369824E2D52F0014FC19 /* CallWaiterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551369724E2D52F0014FC19 /* CallWaiterView.swift */; };
 		C551369A24E3138D0014FC19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C551369924E3138D0014FC19 /* GoogleService-Info.plist */; };
 		C551369C24E3FDBE0014FC19 /* SuccessfulOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */; };
+		C55D772C24F80A46009A683D /* OrderDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C55D772A24F80A46009A683D /* OrderDetailsCell.xib */; };
+		C55D772D24F80A46009A683D /* OrderDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55D772B24F80A46009A683D /* OrderDetailsCell.swift */; };
+		C55D773024F80A92009A683D /* OrderListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C55D772E24F80A92009A683D /* OrderListCell.xib */; };
+		C55D773124F80A92009A683D /* OrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55D772F24F80A92009A683D /* OrderListCell.swift */; };
+		C55D773424F80AD1009A683D /* WaiterRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C55D773224F80AD1009A683D /* WaiterRequestCell.xib */; };
+		C55D773524F80AD1009A683D /* WaiterRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55D773324F80AD1009A683D /* WaiterRequestCell.swift */; };
+		C55D773724F80D82009A683D /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55D773624F80D82009A683D /* UIView + Extensions.swift */; };
+		C55D773A24F81765009A683D /* ChooseServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55D773924F81765009A683D /* ChooseServiceVC.swift */; };
+		C55D773D24F8182E009A683D /* ChooseServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55D773C24F8182E009A683D /* ChooseServiceView.swift */; };
+		C55D773F24F8255C009A683D /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55D773E24F8255C009A683D /* UITextField + Extensions.swift */; };
 		C5706F9224EFF43A00E6B146 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5706F9124EFF43A00E6B146 /* Constants.swift */; };
 		C590E7B824F10FD700FE2CA8 /* ConfirmOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C590E7B624F10FD700FE2CA8 /* ConfirmOrderCell.swift */; };
 		C590E7B924F10FD700FE2CA8 /* ConfirmOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C590E7B724F10FD700FE2CA8 /* ConfirmOrderCell.xib */; };
@@ -33,7 +53,6 @@
 		C5FA420924E2BB9E00F6357E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA420824E2BB9E00F6357E /* MenuView.swift */; };
 		C5FA420C24E2BC1F00F6357E /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA420B24E2BC1F00F6357E /* MenuSection.swift */; };
 		C5FA420F24E2BC9C00F6357E /* LaBodegaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA420E24E2BC9C00F6357E /* LaBodegaService.swift */; };
-		C5FA421124E2BCD500F6357E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA421024E2BCD500F6357E /* Order.swift */; };
 		C5FA421324E2BCF500F6357E /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA421224E2BCF500F6357E /* Beverage.swift */; };
 		C5FA421524E2BD2C00F6357E /* ConfirmOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA421424E2BD2C00F6357E /* ConfirmOrderViewController.swift */; };
 		C5FA421724E2BD8500F6357E /* ConfirmOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA421624E2BD8500F6357E /* ConfirmOrderView.swift */; };
@@ -41,6 +60,16 @@
 
 /* Begin PBXFileReference section */
 		69B15CD9E3A03852341A495F /* Pods-Fast Order.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fast Order.release.xcconfig"; path = "Target Support Files/Pods-Fast Order/Pods-Fast Order.release.xcconfig"; sourceTree = "<group>"; };
+		C54F786924F8044F00BB238A /* WaiterRequestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterRequestsVC.swift; sourceTree = "<group>"; };
+		C54F786F24F804FB00BB238A /* WaiterTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterTabBar.swift; sourceTree = "<group>"; };
+		C54F787224F8054F00BB238A /* OrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListVC.swift; sourceTree = "<group>"; };
+		C54F787524F8059000BB238A /* OrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsVC.swift; sourceTree = "<group>"; };
+		C54F787824F8060400BB238A /* OrderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsView.swift; sourceTree = "<group>"; };
+		C54F787B24F8064B00BB238A /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
+		C54F787E24F8067E00BB238A /* WaiterRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterRequestsView.swift; sourceTree = "<group>"; };
+		C54F788224F806DB00BB238A /* WaiterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterService.swift; sourceTree = "<group>"; };
+		C54F788824F807DA00BB238A /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		C54F788A24F8080E00BB238A /* WaiterRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaiterRequests.swift; sourceTree = "<group>"; };
 		C551368D24E2C7A80014FC19 /* BeverageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeverageCell.xib; sourceTree = "<group>"; };
 		C551368E24E2C7A80014FC19 /* BeverageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageCell.swift; sourceTree = "<group>"; };
 		C551369124E2D4800014FC19 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -49,6 +78,16 @@
 		C551369724E2D52F0014FC19 /* CallWaiterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallWaiterView.swift; sourceTree = "<group>"; };
 		C551369924E3138D0014FC19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C551369B24E3FDBE0014FC19 /* SuccessfulOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulOrderView.swift; sourceTree = "<group>"; };
+		C55D772A24F80A46009A683D /* OrderDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailsCell.xib; sourceTree = "<group>"; };
+		C55D772B24F80A46009A683D /* OrderDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsCell.swift; sourceTree = "<group>"; };
+		C55D772E24F80A92009A683D /* OrderListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderListCell.xib; sourceTree = "<group>"; };
+		C55D772F24F80A92009A683D /* OrderListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListCell.swift; sourceTree = "<group>"; };
+		C55D773224F80AD1009A683D /* WaiterRequestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaiterRequestCell.xib; sourceTree = "<group>"; };
+		C55D773324F80AD1009A683D /* WaiterRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaiterRequestCell.swift; sourceTree = "<group>"; };
+		C55D773624F80D82009A683D /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		C55D773924F81765009A683D /* ChooseServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseServiceVC.swift; sourceTree = "<group>"; };
+		C55D773C24F8182E009A683D /* ChooseServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseServiceView.swift; sourceTree = "<group>"; };
+		C55D773E24F8255C009A683D /* UITextField + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
 		C5706F9124EFF43A00E6B146 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C590E7B624F10FD700FE2CA8 /* ConfirmOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderCell.swift; sourceTree = "<group>"; };
 		C590E7B724F10FD700FE2CA8 /* ConfirmOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmOrderCell.xib; sourceTree = "<group>"; };
@@ -68,7 +107,6 @@
 		C5FA420824E2BB9E00F6357E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		C5FA420B24E2BC1F00F6357E /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		C5FA420E24E2BC9C00F6357E /* LaBodegaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaBodegaService.swift; sourceTree = "<group>"; };
-		C5FA421024E2BCD500F6357E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C5FA421224E2BCF500F6357E /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		C5FA421424E2BD2C00F6357E /* ConfirmOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderViewController.swift; sourceTree = "<group>"; };
 		C5FA421624E2BD8500F6357E /* ConfirmOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderView.swift; sourceTree = "<group>"; };
@@ -95,6 +133,164 @@
 				69B15CD9E3A03852341A495F /* Pods-Fast Order.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C54F785A24F8025300BB238A /* Customer Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE172624EF1B6F003D71A3 /* CustomTabBar */,
+				C5EE172724EF1B85003D71A3 /* Menu */,
+				C5706F9324F036AD00E6B146 /* Confirm Order */,
+				C5706F9424F041C100E6B146 /* CallWaiter */,
+				C5706F9524F0425600E6B146 /* SuccessfulOrder */,
+			);
+			path = "Customer Controllers";
+			sourceTree = "<group>";
+		};
+		C54F786824F8042A00BB238A /* Waiter Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C54F787424F8058100BB238A /* Order Details */,
+				C54F787124F8053800BB238A /* Order List */,
+				C54F786E24F804C400BB238A /* Waiter Tabbar */,
+				C54F786D24F804B800BB238A /* Waiter Requests */,
+			);
+			path = "Waiter Controllers";
+			sourceTree = "<group>";
+		};
+		C54F786B24F8047E00BB238A /* Customer Views */ = {
+			isa = PBXGroup;
+			children = (
+				C5A0781524EDC4BC0006B53C /* Menu */,
+				C5A0781624EDC4E80006B53C /* ConfirmOrder */,
+				C5A0781724EDC4F70006B53C /* CallWaiter */,
+				C5A0781824EDC5030006B53C /* SuccessfulOrder */,
+			);
+			path = "Customer Views";
+			sourceTree = "<group>";
+		};
+		C54F786C24F8049700BB238A /* Waiter Views */ = {
+			isa = PBXGroup;
+			children = (
+				C54F787D24F8066D00BB238A /* Waiter Requests */,
+				C54F787A24F8063300BB238A /* Order List */,
+				C54F787724F805D400BB238A /* Order Details */,
+			);
+			path = "Waiter Views";
+			sourceTree = "<group>";
+		};
+		C54F786D24F804B800BB238A /* Waiter Requests */ = {
+			isa = PBXGroup;
+			children = (
+				C54F786924F8044F00BB238A /* WaiterRequestsVC.swift */,
+			);
+			path = "Waiter Requests";
+			sourceTree = "<group>";
+		};
+		C54F786E24F804C400BB238A /* Waiter Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				C54F786F24F804FB00BB238A /* WaiterTabBar.swift */,
+			);
+			path = "Waiter Tabbar";
+			sourceTree = "<group>";
+		};
+		C54F787124F8053800BB238A /* Order List */ = {
+			isa = PBXGroup;
+			children = (
+				C54F787224F8054F00BB238A /* OrderListVC.swift */,
+			);
+			path = "Order List";
+			sourceTree = "<group>";
+		};
+		C54F787424F8058100BB238A /* Order Details */ = {
+			isa = PBXGroup;
+			children = (
+				C54F787524F8059000BB238A /* OrderDetailsVC.swift */,
+			);
+			path = "Order Details";
+			sourceTree = "<group>";
+		};
+		C54F787724F805D400BB238A /* Order Details */ = {
+			isa = PBXGroup;
+			children = (
+				C54F787824F8060400BB238A /* OrderDetailsView.swift */,
+				C55D772B24F80A46009A683D /* OrderDetailsCell.swift */,
+				C55D772A24F80A46009A683D /* OrderDetailsCell.xib */,
+			);
+			path = "Order Details";
+			sourceTree = "<group>";
+		};
+		C54F787A24F8063300BB238A /* Order List */ = {
+			isa = PBXGroup;
+			children = (
+				C54F787B24F8064B00BB238A /* OrderListView.swift */,
+				C55D772F24F80A92009A683D /* OrderListCell.swift */,
+				C55D772E24F80A92009A683D /* OrderListCell.xib */,
+			);
+			path = "Order List";
+			sourceTree = "<group>";
+		};
+		C54F787D24F8066D00BB238A /* Waiter Requests */ = {
+			isa = PBXGroup;
+			children = (
+				C54F787E24F8067E00BB238A /* WaiterRequestsView.swift */,
+				C55D773324F80AD1009A683D /* WaiterRequestCell.swift */,
+				C55D773224F80AD1009A683D /* WaiterRequestCell.xib */,
+			);
+			path = "Waiter Requests";
+			sourceTree = "<group>";
+		};
+		C54F788024F806A800BB238A /* Customer Service */ = {
+			isa = PBXGroup;
+			children = (
+				C5FA420E24E2BC9C00F6357E /* LaBodegaService.swift */,
+				C551369124E2D4800014FC19 /* Services.swift */,
+			);
+			path = "Customer Service";
+			sourceTree = "<group>";
+		};
+		C54F788124F806B400BB238A /* Waiter Service */ = {
+			isa = PBXGroup;
+			children = (
+				C54F788224F806DB00BB238A /* WaiterService.swift */,
+			);
+			path = "Waiter Service";
+			sourceTree = "<group>";
+		};
+		C54F788424F8078200BB238A /* Customer Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5FA420B24E2BC1F00F6357E /* MenuSection.swift */,
+				C5FA421224E2BCF500F6357E /* Beverage.swift */,
+				C5A0780E24EDC3A80006B53C /* MyButton.swift */,
+				C5A0781024EDC3CF0006B53C /* MyTapGesture.swift */,
+			);
+			path = "Customer Models";
+			sourceTree = "<group>";
+		};
+		C54F788524F8078E00BB238A /* Waiter Models */ = {
+			isa = PBXGroup;
+			children = (
+				C54F788A24F8080E00BB238A /* WaiterRequests.swift */,
+			);
+			path = "Waiter Models";
+			sourceTree = "<group>";
+		};
+		C55D773824F816B4009A683D /* ChooseService */ = {
+			isa = PBXGroup;
+			children = (
+				C55D773924F81765009A683D /* ChooseServiceVC.swift */,
+			);
+			path = ChooseService;
+			sourceTree = "<group>";
+		};
+		C55D773B24F81820009A683D /* Choose Service */ = {
+			isa = PBXGroup;
+			children = (
+				C55D773C24F8182E009A683D /* ChooseServiceView.swift */,
+			);
+			path = "Choose Service";
 			sourceTree = "<group>";
 		};
 		C5706F9024EFF41E00E6B146 /* Globals */ = {
@@ -136,6 +332,8 @@
 				C5A0780C24EDC34F0006B53C /* UIButton + Extensions.swift */,
 				C5A0781224EDC3F50006B53C /* UIImageView + Extensions.swift */,
 				C5A0781924EDCA560006B53C /* UITableView + Extensions.swift */,
+				C55D773624F80D82009A683D /* UIView + Extensions.swift */,
+				C55D773E24F8255C009A683D /* UITextField + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,11 +437,9 @@
 		C5FA420524E2BB3700F6357E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C5EE172624EF1B6F003D71A3 /* CustomTabBar */,
-				C5EE172724EF1B85003D71A3 /* Menu */,
-				C5706F9324F036AD00E6B146 /* Confirm Order */,
-				C5706F9424F041C100E6B146 /* CallWaiter */,
-				C5706F9524F0425600E6B146 /* SuccessfulOrder */,
+				C55D773824F816B4009A683D /* ChooseService */,
+				C54F786824F8042A00BB238A /* Waiter Controllers */,
+				C54F785A24F8025300BB238A /* Customer Controllers */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -251,10 +447,9 @@
 		C5FA420A24E2BBA500F6357E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5A0781524EDC4BC0006B53C /* Menu */,
-				C5A0781624EDC4E80006B53C /* ConfirmOrder */,
-				C5A0781724EDC4F70006B53C /* CallWaiter */,
-				C5A0781824EDC5030006B53C /* SuccessfulOrder */,
+				C55D773B24F81820009A683D /* Choose Service */,
+				C54F786C24F8049700BB238A /* Waiter Views */,
+				C54F786B24F8047E00BB238A /* Customer Views */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,11 +457,9 @@
 		C5FA420D24E2BC2500F6357E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C5FA420B24E2BC1F00F6357E /* MenuSection.swift */,
-				C5FA421024E2BCD500F6357E /* Order.swift */,
-				C5FA421224E2BCF500F6357E /* Beverage.swift */,
-				C5A0780E24EDC3A80006B53C /* MyButton.swift */,
-				C5A0781024EDC3CF0006B53C /* MyTapGesture.swift */,
+				C54F788824F807DA00BB238A /* Order.swift */,
+				C54F788524F8078E00BB238A /* Waiter Models */,
+				C54F788424F8078200BB238A /* Customer Models */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,8 +467,8 @@
 		C5FA421824E2C0C700F6357E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C5FA420E24E2BC9C00F6357E /* LaBodegaService.swift */,
-				C551369124E2D4800014FC19 /* Services.swift */,
+				C54F788124F806B400BB238A /* Waiter Service */,
+				C54F788024F806A800BB238A /* Customer Service */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -348,8 +541,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55D773424F80AD1009A683D /* WaiterRequestCell.xib in Resources */,
 				C551368F24E2C7A80014FC19 /* BeverageCell.xib in Resources */,
 				C551369A24E3138D0014FC19 /* GoogleService-Info.plist in Resources */,
+				C55D773024F80A92009A683D /* OrderListCell.xib in Resources */,
+				C55D772C24F80A46009A683D /* OrderDetailsCell.xib in Resources */,
 				C5FA41FB24E2B7A000F6357E /* Assets.xcassets in Resources */,
 				C590E7B924F10FD700FE2CA8 /* ConfirmOrderCell.xib in Resources */,
 			);
@@ -408,27 +604,43 @@
 				C551369224E2D4800014FC19 /* Services.swift in Sources */,
 				C551369824E2D52F0014FC19 /* CallWaiterView.swift in Sources */,
 				C5FA420C24E2BC1F00F6357E /* MenuSection.swift in Sources */,
+				C55D772D24F80A46009A683D /* OrderDetailsCell.swift in Sources */,
+				C54F787924F8060400BB238A /* OrderDetailsView.swift in Sources */,
 				C551369C24E3FDBE0014FC19 /* SuccessfulOrderView.swift in Sources */,
 				C5A0781124EDC3CF0006B53C /* MyTapGesture.swift in Sources */,
+				C54F788324F806DB00BB238A /* WaiterService.swift in Sources */,
+				C54F786A24F8044F00BB238A /* WaiterRequestsVC.swift in Sources */,
 				C5FA41F224E2B79800F6357E /* AppDelegate.swift in Sources */,
+				C54F787624F8059000BB238A /* OrderDetailsVC.swift in Sources */,
+				C55D773A24F81765009A683D /* ChooseServiceVC.swift in Sources */,
+				C55D773524F80AD1009A683D /* WaiterRequestCell.swift in Sources */,
 				C5FA421324E2BCF500F6357E /* Beverage.swift in Sources */,
 				C5CA38EC24E6825D00C00C65 /* SuccessfulOrderViewController.swift in Sources */,
 				C5A0780F24EDC3A80006B53C /* MyButton.swift in Sources */,
 				C551369624E2D5150014FC19 /* CallWaiterViewController.swift in Sources */,
+				C54F787024F804FB00BB238A /* WaiterTabBar.swift in Sources */,
 				C5FA420F24E2BC9C00F6357E /* LaBodegaService.swift in Sources */,
 				C5FA420924E2BB9E00F6357E /* MenuView.swift in Sources */,
 				C551369024E2C7A80014FC19 /* BeverageCell.swift in Sources */,
+				C54F787C24F8064B00BB238A /* OrderListView.swift in Sources */,
 				C590E7B824F10FD700FE2CA8 /* ConfirmOrderCell.swift in Sources */,
 				C551369424E2D4F00014FC19 /* CustomTabBarController.swift in Sources */,
+				C54F788B24F8080E00BB238A /* WaiterRequests.swift in Sources */,
 				C5FA420724E2BB5900F6357E /* MenuViewController.swift in Sources */,
+				C54F787F24F8067E00BB238A /* WaiterRequestsView.swift in Sources */,
+				C55D773124F80A92009A683D /* OrderListCell.swift in Sources */,
 				C5A0780B24EDC31C0006B53C /* UILabel + Extensions.swift in Sources */,
 				C5FA41F424E2B79800F6357E /* SceneDelegate.swift in Sources */,
+				C54F788924F807DA00BB238A /* Order.swift in Sources */,
 				C5A0781324EDC3F50006B53C /* UIImageView + Extensions.swift in Sources */,
-				C5FA421124E2BCD500F6357E /* Order.swift in Sources */,
 				C5A0781A24EDCA560006B53C /* UITableView + Extensions.swift in Sources */,
 				C5FA421524E2BD2C00F6357E /* ConfirmOrderViewController.swift in Sources */,
+				C54F787324F8054F00BB238A /* OrderListVC.swift in Sources */,
 				C5A0780D24EDC34F0006B53C /* UIButton + Extensions.swift in Sources */,
+				C55D773724F80D82009A683D /* UIView + Extensions.swift in Sources */,
+				C55D773F24F8255C009A683D /* UITextField + Extensions.swift in Sources */,
 				C5706F9224EFF43A00E6B146 /* Constants.swift in Sources */,
+				C55D773D24F8182E009A683D /* ChooseServiceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

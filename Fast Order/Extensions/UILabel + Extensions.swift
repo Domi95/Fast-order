@@ -10,10 +10,11 @@ import UIKit
 
 extension UILabel {
     
-    func style(isHidden: Bool = false, size: CGFloat = 20, text: String = "", color: UIColor = .white, bgColor: UIColor = .black) {
+    func style(isHidden: Bool = false, size: CGFloat = 20, text: String = "", textColor: UIColor = .white, bgColor: UIColor = .black) {
         self.font = .boldSystemFont(ofSize: size)
-        self.textColor = color
+        self.textColor = textColor
         self.text = text
+        self.backgroundColor = bgColor
         self.textAlignment = .center
         self.isHidden = isHidden
         self.clipsToBounds = true

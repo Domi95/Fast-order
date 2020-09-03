@@ -30,7 +30,7 @@ class CustomTabBarController: UITabBarController {
         let menuItem = UITabBarItem()
         menuItem.title = "Menu"
         menuItem.image = UIImage(named:"menuIcon")
-        
+
         let navigationController1 = UINavigationController(rootViewController: menuViewController)
         navigationController1.tabBarItem = menuItem
 
